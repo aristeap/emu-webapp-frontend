@@ -1,0 +1,46 @@
+<div class="auth-page" ng-controller="AuthCtrl as auth">
+    <div class="auth-box">
+      <h2>Login Form</h2>
+      <div class="tabs">
+        <button ng-class="{active: auth.mode==='login'}" ng-click="auth.mode='login'">Login</button>
+        <button ng-class="{active: auth.mode==='signup'}" ng-click="auth.mode='signup'">Signup</button>
+      </div>
+
+      <script>
+        console.log("✅ login.html has loaded");
+      </script>
+  
+      <form ng-submit="auth.submit()" novalidate>
+          <div class="form-group" ng-if="auth.mode==='signup'">
+              <input type="text" ng-model="auth.user.name" ng-focus="auth.cursorInTextField()" ng-blur="auth.cursorOutOfTextField()" placeholder="Full Name" required >
+          </div>
+          <div class="form-group">
+              <input type="email" ng-model="auth.user.email" ng-focus="auth.cursorInTextField()" ng-blur="auth.cursorOutOfTextField()" placeholder="Email Address" required>
+          </div>
+          <div class="form-group">
+              <input ng-attr-type="{{ auth.showPassword ? 'text' : 'password' }}" ng-model="auth.user.password" ng-focus="auth.cursorInTextField()" ng-blur="auth.cursorOutOfTextField()" placeholder="Password" required>
+
+              <i class="material-icons toggle-password" ng-click="auth.showPassword = !auth.showPassword" title="{{ auth.showPassword ? 'Hide password' : 'Show password' }}">
+                {{ auth.showPassword ? 'visibility_off' : 'visibility' }}
+              </i>
+
+          </div>
+
+          <!-- inline error -->
+          <div class="login-error" ng-if="auth.loginError">
+            {{ auth.loginError}}
+          </div>
+
+           
+
+          <a class="forgot" href="#" ng-if="auth.mode==='login'">Forgot password?</a>
+          <button class="btn-primary">{{ auth.mode==='login' ? 'Login' : 'Sign Up' }}</button>
+      </form>
+  
+      <p class="switch">
+        <span ng-if="auth.mode==='login'">Not a member? <a href ng-click="auth.mode='signup'">Signup now</a></span>
+        <span ng-if="auth.mode==='signup'">Already a member? <a href ng-click="auth.mode='login'">Login</a></span>
+      </p>
+    </div>
+</div>
+  

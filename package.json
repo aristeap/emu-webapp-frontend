@@ -1,0 +1,16 @@
+{
+  "name": "emu-webapp-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "rimraf dist/* && webpack --config webpack.prod.js",
+    "test": "karma start test/karma.conf.js"
+  },
+  "dependencies": {
+    "your-angular-dependencies-here": "^x.x.x"
+  },
+  "devDependencies": {
+    "your-dev-dependencies-here": "^x.x.x"
+  }
+}
