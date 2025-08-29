@@ -31,12 +31,12 @@ class ChooseAdminsCtrl {
     private ModalService: any
   ) {
     // 1️⃣ Fetch all files (keep the whole object)
-    this.$http.get<IFileMeta[]>('http://localhost:3019/files')
+    this.$http.get<IFileMeta[]>('https://emu-webapp-backend.onrender.com/files')
       .then(resp => this.files = resp.data)
       .catch(err => console.error('Could not load files:', err));
 
     // 2️⃣ Fetch admins
-    this.$http.get<IUserEntry[]>('http://localhost:3019/users')
+    this.$http.get<IUserEntry[]>('https://emu-webapp-backend.onrender.com/users')
       .then(resp => {
         this.admins = resp.data.filter(u => u.role === 'administrator');
           // .map(u => u.email);
@@ -83,7 +83,7 @@ class ChooseAdminsCtrl {
     console.log('→ sending payload:', payload);
 
     
-    this.$http.post('http://localhost:3019/assign-admin',payload)
+    this.$http.post('https://emu-webapp-backend.onrender.com/assign-admin',payload)
     .then(() => {
       alert('Assignments saved!');
       this.ModalService.close();

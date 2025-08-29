@@ -36,14 +36,14 @@ class ChooseResearchersCtrl {
     }
     const myEmail = me!.email;
 
-    this.$http.get<IFileMeta[]>('http://localhost:3019/files')
+    this.$http.get<IFileMeta[]>('https://emu-webapp-backend.onrender.com/files')
       .then(resp => {
         this.files = resp.data.filter(f => f.adminEmail === myEmail);
       })
       .catch(e => console.error('Could not load files:', e));
 
     // 2️⃣ fetch all researcher‐role users
-    this.$http.get<IUserEntry[]>('http://localhost:3019/users')
+    this.$http.get<IUserEntry[]>('https://emu-webapp-backend.onrender.com/users')
       .then(resp => {
         this.researchers = resp.data.filter(u => u.role === 'researcher');
       })
@@ -70,7 +70,7 @@ class ChooseResearchersCtrl {
       return alert('Pick at least one file AND researcher');
     }
 
-    this.$http.post('http://localhost:3019/assign-researchers', { assignments: rows })
+    this.$http.post('https://emu-webapp-backend.onrender.com/assign-researchers', { assignments: rows })
       .then(() => {
         alert('Researchers assigned!');
         this.ModalService.close(true);

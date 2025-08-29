@@ -177,7 +177,7 @@ function loadForm(formType) {
   // ── Generate form content based on formType ──
   if (mappedFormType === 'corpus') {
     formContent = `
-      <form action="http://localhost:3019/post-corpus" id="corpus-form" method="POST" class="metadata-form">
+      <form action="https://emu-webapp-backend.onrender.com/post-corpus" id="corpus-form" method="POST" class="metadata-form">
         <label>Document Title:</label>
         <input type="text" name="doc_title" placeholder="Enter document title" ng-focus="cursorInTextField()" ng-blur="cursorOutOfTextField()"/>
         <label>Corpus Type:</label>
@@ -294,7 +294,7 @@ function loadAuthorForm(event) {
 // ── Display the “Author” form ──
 function showAuthorForm(authorNumber) {
   const formContent = `
-    <form action="http://localhost:3019/post-pdf-author" id="author-form" method="POST" class="metadata-form" data-author-id="author${authorNumber}">
+    <form action="https://emu-webapp-backend.onrender.com/post-pdf-author" id="author-form" method="POST" class="metadata-form" data-author-id="author${authorNumber}">
       <label>Name:</label>
       <input type="text" name="first_name" placeholder="Enter first name for Author ${authorNumber}" ng-focus="cursorInTextField()" ng-blur="cursorOutOfTextField()"/>
       <label>Full name:</label>
@@ -411,7 +411,7 @@ function loadLanguageForm() {
 // ── Display the “Language” form ──
 function showLanguageForm(languageNumber) {
   const formContent = `
-    <form action="http://localhost:3019/post-pdf-language" id="language-form" method="POST" class="metadata-form" data-language-id="language${languageNumber}">
+    <form action="https://emu-webapp-backend.onrender.com/post-pdf-language" id="language-form" method="POST" class="metadata-form" data-language-id="language${languageNumber}">
       <label>Id:</label>
       <select name="lang_id">
           <option value="eng">ISO639-3:eng</option>
@@ -643,7 +643,7 @@ document.getElementById("emuwebapp-modal-save").addEventListener("click", functi
   };
 
   // 6) Send to server
-  fetch("http://localhost:3019/save-pdf-metadata", {
+  fetch("https://emu-webapp-backend.onrender.com/save-pdf-metadata", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(consolidatedMetadata),

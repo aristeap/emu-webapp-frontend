@@ -32,7 +32,7 @@ export class AuthService {
   constructor(private $http: angular.IHttpService) {}
 
   signup(newUser: IAuthUser): angular.IPromise<any> {
-    return this.$http.post('http://localhost:3019/signup', newUser);
+    return this.$http.post('https://emu-webapp-backend.onrender.com/signup', newUser);
   }
 
   setUser(user: IUser): void {

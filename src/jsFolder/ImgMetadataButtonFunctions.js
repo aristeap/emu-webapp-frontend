@@ -57,7 +57,7 @@ function loadForm(formType) {
   // Generate form content
   if (mappedFormType === 'image') {
     formContent = `
-      <form action="http://localhost:3019/post-image" id="image-form" method="POST" class="metadata-form">
+      <form action="https://emu-webapp-backend.onrender.com/post-image" id="image-form" method="POST" class="metadata-form">
         <label>Image Name:</label>
         <input type="text" name="filename" placeholder="Enter image name" ng-focus="cursorInTextField()" ng-blur="cursorOutOfTextField()"/>
         <button class="done-btn" data-form-type="image" type="button" onclick="initializeDoneButton()">Save temporarily</button>
@@ -96,7 +96,7 @@ function loadBasicInfoForm(event) {
   }
 
   const formContent = `
-    <form action="http://localhost:3019/post-img-basic" id="basic-form" method="POST" class="metadata-form">
+    <form action="https://emu-webapp-backend.onrender.com/post-img-basic" id="basic-form" method="POST" class="metadata-form">
       <label>Title:</label>
       <input type="text" name="title" placeholder="Enter title" ng-focus="cursorInTextField()" ng-blur="cursorOutOfTextField()"/>
       <label>Description:</label>
@@ -140,7 +140,7 @@ function loadTechDetailsForm(event) {
   }
 
   const formContent = `
-    <form action="http://localhost:3019/post-img-tech" id="tech-form" method="POST" class="metadata-form">
+    <form action="https://emu-webapp-backend.onrender.com/post-img-tech" id="tech-form" method="POST" class="metadata-form">
       <label>File Format:</label>
       <input type="text" name="file_format" placeholder="e.g., JPEG" ng-focus="cursorInTextField()" ng-blur="cursorOutOfTextField()"/>
       <label>Resolution:</label>
@@ -322,7 +322,7 @@ document.getElementById("emuwebapp-modal-save").addEventListener("click", functi
   };
 
   // 5) Send to server
-  fetch("http://localhost:3019/save-img-metadata", {
+  fetch("https://emu-webapp-backend.onrender.com/save-img-metadata", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(consolidatedMetadata),

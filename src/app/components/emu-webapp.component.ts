@@ -2074,7 +2074,7 @@ let EmuWebAppComponent = {
   			payload.pdfAnnotations = this.AnnotationService.annotations || [];
 
 			this.$http.post(
-  					'http://localhost:3019' + `/api/emuDB/${db}/${bndl}/annot`,
+  					'https://emu-webapp-backend.onrender.com' + `/api/emuDB/${db}/${bndl}/annot`,
 				payload
 			).then(
 				() => { alert('Annotations saved to EmuDB!'); },
@@ -2252,7 +2252,7 @@ let EmuWebAppComponent = {
 					formData.append('file', file);
 		
 					// Send the file to the backend using $http
-					this.$http.post('http://localhost:3019/upload-file', formData, {
+					this.$http.post('https://emu-webapp-backend.onrender.com/upload-file', formData, {
 						headers: { 'Content-Type': undefined },
 						transformRequest: angular.identity
 					}).then((response: any) => {
@@ -2299,7 +2299,7 @@ let EmuWebAppComponent = {
 
 		// In your main controller (or the controller that opens the modal)
 		private openFromDatabaseBtnClick() {
-			this.$http.get('http://localhost:3019/files')
+			this.$http.get('https://emu-webapp-backend.onrender.com/files')
 			  .then((response: any) => {
 				const files = response.data;
 				// console.log("Files retrieved from database:", files);
@@ -2331,7 +2331,7 @@ let EmuWebAppComponent = {
 			console.log("user: ",user);
 
 			this.$http
-			  .get('http://localhost:3019/files')
+			  .get('https://emu-webapp-backend.onrender.com/files')
 			  .then((response: angular.IHttpResponse<IFileMeta[]>) => {
 				// Now TypeScript knows response.data is IFileMeta[]
 				const allFiles = response.data;
@@ -2362,7 +2362,7 @@ let EmuWebAppComponent = {
 			console.log("user: ",user);
 
 			this.$http
-			  .get('http://localhost:3019/files')
+			  .get('https://emu-webapp-backend.onrender.com/files')
 			  .then((response: angular.IHttpResponse<IFileMeta[]>) => {
 				// Now TypeScript knows response.data is IFileMeta[]
 				const allFiles = response.data;
@@ -2393,7 +2393,7 @@ let EmuWebAppComponent = {
 		};
 		  
 		private chooseAdminsBtnClick(): void {
-			this.$http.get('http://localhost:3019/files')
+			this.$http.get('https://emu-webapp-backend.onrender.com/files')
 			.then((response: any) => {
 			  const files = response.data;
 			  // console.log("Files retrieved from database:", files);

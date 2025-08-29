@@ -53,7 +53,7 @@ let AssignedResearchersComponent = {
 
       ctrl.refreshTable = () => {
         console.log("inside assignedReas refreshTable");
-        $http.get<IFileMeta[]>('http://localhost:3019/files')
+        $http.get<IFileMeta[]>('https://emu-webapp-backend.onrender.com/files')
           .then(resp => {
             console.log("isnide the then ");
             ctrl.rows = resp.data
@@ -105,7 +105,7 @@ let AssignedResearchersComponent = {
             { fileId: row._id, researcherEmails: [] } 
           ] 
         };
-        $http.post('http://localhost:3019/assign-researchers', payload)
+        $http.post('https://emu-webapp-backend.onrender.com/assign-researchers', payload)
           .then(() => ctrl.refreshTable())
           .catch(err => alert('Could not clear researchers: ' + (err.data?.message || err.statusText)));
       };

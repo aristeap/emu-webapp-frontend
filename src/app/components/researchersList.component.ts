@@ -42,7 +42,7 @@ let ResearchersListForAdminComponent = {
 
       // Fetch list of researchers
       ctrl.refreshTable = () => {
-        $http.get<{email: string, role: string}[]>('http://localhost:3019/users')
+        $http.get<{email: string, role: string}[]>('https://emu-webapp-backend.onrender.com/users')
           .then(resp => {
             ctrl.rows = resp.data
               .filter(user => user.role === 'researcher')
@@ -70,9 +70,9 @@ let ResearchersListForAdminComponent = {
       // Delete researcher
      ctrl.delete = (row) => {
         $http
-          .delete(`http://localhost:3019/users/${encodeURIComponent(row.email)}`)
+          .delete(`https://emu-webapp-backend.onrender.com/users/${encodeURIComponent(row.email)}`)
           // once the user is gone, unassign them from any files that still mention them
-          .then(() => $http.get('http://localhost:3019/files'))
+          .then(() => $http.get('https://emu-webapp-backend.onrender.com/files'))
           .then(resp => {
             // build one bulk‐unassign payload
             const assignments = resp.data

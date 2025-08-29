@@ -58,7 +58,7 @@ let InfoForEYComponent = {
 
       // Fetch table data
       ctrl.refreshTable = () => {
-          $http.get<IFileMeta[]>('http://localhost:3019/files')
+          $http.get<IFileMeta[]>('https://emu-webapp-backend.onrender.com/files')
             .then(r => ctrl.rows = r.data)
             .catch(e => console.error('Failed to load files', e));
         };
@@ -95,7 +95,7 @@ let InfoForEYComponent = {
               { fileId: row._id, adminEmail: "" }
             ]
           };
-          $http.post('http://localhost:3019/assign-admin', payload)
+          $http.post('https://emu-webapp-backend.onrender.com/assign-admin', payload)
             .then(() => {
               ctrl.refreshTable();
               // let the other component know it needs to reload too

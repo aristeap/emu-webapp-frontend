@@ -86,7 +86,7 @@ angular.module('emuwebApp').controller('RetrieveFromDatabase', [
 
 
       // NEW: Request annotations from the server (which will fetch from S3)
-      const annotURL = `http://localhost:3019/emuDB/${dbName}/${bundle.name}/annot.json`;
+      const annotURL = `https://emu-webapp-backend.onrender.com/emuDB/${dbName}/${bundle.name}/annot.json`;
       $http.get(annotURL)
         .then(function(resp) {
           bundle.annotation = resp.data;            // ← NEW: use loaded JSON
@@ -138,7 +138,7 @@ angular.module('emuwebApp').controller('RetrieveFromDatabase', [
     vm.deleteSelected = function() {
       if (vm.selectedFile) {
         if (confirm("Are you sure you want to delete this file?")) {
-          $http.delete('http://localhost:3019/delete-file/' + vm.selectedFile._id)
+          $http.delete('https://emu-webapp-backend.onrender.com/delete-file/' + vm.selectedFile._id)
             .then(function(response) {
               console.log("File deleted:", response.data);
               alert("File deleted successfully");

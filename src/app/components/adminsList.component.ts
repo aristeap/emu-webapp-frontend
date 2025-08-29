@@ -55,7 +55,7 @@ let AdminsListForEYComponent  = {
 
       // Fetch table data
       ctrl.refreshTable = () => {
-            $http.get<{email:string,role:string}[]>('http://localhost:3019/users')
+            $http.get<{email:string,role:string}[]>('https://emu-webapp-backend.onrender.com/users')
             .then(resp => {
                 // pull out every adminEmail (skip empty/null)
                 ctrl.rows = resp.data
@@ -96,11 +96,11 @@ let AdminsListForEYComponent  = {
        
       ctrl.delete = (row: { adminEmail: string }) => {
         $http.delete(
-          `http://localhost:3019/users/${encodeURIComponent(row.adminEmail)}`
+          `https://emu-webapp-backend.onrender.com/users/${encodeURIComponent(row.adminEmail)}`
         )
         .then(() => {
           // after the user is gone, unassign them from any files
-          return $http.get<IFileMeta[]>('http://localhost:3019/files');
+          return $http.get<IFileMeta[]>('https://emu-webapp-backend.onrender.com/files');
         })
         .then(resp => {
           const assignments = resp.data
@@ -108,7 +108,7 @@ let AdminsListForEYComponent  = {
             .map(f => ({ fileId: f._id, adminEmail: "" }));
           if (assignments.length) {
             return $http.post(
-              'http://localhost:3019/assign-admin',
+              'https://emu-webapp-backend.onrender.com/assign-admin',
               { assignments }
             );
           }

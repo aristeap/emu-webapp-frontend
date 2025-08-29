@@ -179,7 +179,7 @@
             // Generate form content based on formType
             if (mappedFormType === 'recording') {
                 formContent = `
-                     <form action="http://localhost:3019/post-recording" id="recording-form" method="POST" class="metadata-form">
+                     <form action="https://emu-webapp-backend.onrender.com/post-recording" id="recording-form" method="POST" class="metadata-form">
                         <label>Name:</label>
                         <input type="text" name="filename" placeholder="Enter the file name" ng-focus="cursorInTextField()" ng-blur="cursorOutOfTextField()"/>
                         <label>Title:</label>
@@ -200,7 +200,7 @@
                     </form>`;
             } else if (mappedFormType === 'content') {
                 formContent = `
-                    <form action="http://localhost:3019/post-content" id="content-form" method="POST" class="metadata-form">
+                    <form action="https://emu-webapp-backend.onrender.com/post-content" id="content-form" method="POST" class="metadata-form">
                         <label>Genre:</label>
                         <select name="genre">
                             <option value="radio">Radio-TV feature</option>
@@ -336,7 +336,7 @@
           //console.log("The showActorForm function has been called");
       
             const formContent = `
-                <form action="http://localhost:3019/post-actor" id="actor-form" method="POST" class="metadata-form"  data-actor-id="actor${actorNumber}">
+                <form action="https://emu-webapp-backend.onrender.com/post-actor" id="actor-form" method="POST" class="metadata-form"  data-actor-id="actor${actorNumber}">
                     <label>Name:</label>
                     <input type="text" name="first_name" placeholder="Enter the first name for Actor ${actorNumber}" ng-focus="cursorInTextField()" ng-blur="cursorOutOfTextField()"/>
                     <label>Full name:</label>
@@ -489,7 +489,7 @@
           //console.log("The showLanguageForm function has been called");
 
           const formContent = `
-            <form action="http://localhost:3019/post-language" id="language-form" method="POST" class="metadata-form"  data-language-id="language${languageNumber}">
+            <form action="https://emu-webapp-backend.onrender.com/post-language" id="language-form" method="POST" class="metadata-form"  data-language-id="language${languageNumber}">
               <label>Id:</label>
                   <select name="lang_id">
                       <option value="eng">ISO639-3:eng</option>
@@ -802,7 +802,7 @@
           };
 
           // 6) Send to server
-          fetch("http://localhost:3019/save-metadata", {
+          fetch("https://emu-webapp-backend.onrender.com/save-metadata", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(consolidatedMetadata)

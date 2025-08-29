@@ -38,7 +38,7 @@ export class AuthController {
   submit(): void {
     this.loginError = ''; // clear previous
 
-    const API = 'http://localhost:3019';
+    const API = 'https://emu-webapp-backend.onrender.com';
     const url = this.mode === 'login' ? '/login' : '/signup';
     this.$http
       .post<IAuthResponse>(API + url, {

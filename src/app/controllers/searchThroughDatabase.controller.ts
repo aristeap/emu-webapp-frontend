@@ -66,7 +66,7 @@ angular
                 source:      vm.filters.source
             };
 
-            $http.get('http://localhost:3019/api/search', { params })
+            $http.get('https://emu-webapp-backend.onrender.com/api/search', { params })
             .then((resp) => {
                 vm.resultsMetadata = resp.data.results;  //save for the tile, so we can show it at the html
                 // resp.data.results is your array of Recordings
@@ -91,7 +91,7 @@ angular
                 label: vm.filters.label
             }
 
-            $http.get('http://localhost:3019/api/search/annotations/recordings', { params })
+            $http.get('https://emu-webapp-backend.onrender.com/api/search/annotations/recordings', { params })
             .then((resp) => {
                 vm.resultsAnnotations = resp.data.results;  //save for the tile, so we can show it at the html
                 // resp.data.results is your array of Recordings
@@ -116,7 +116,7 @@ angular
                 comment:   vm.filters.comment 
             }
 
-            $http.get('http://localhost:3019/api/search/annotations/pdf', { params })
+            $http.get('https://emu-webapp-backend.onrender.com/api/search/annotations/pdf', { params })
             .then((resp) => {
                 vm.resultsAnnotationsPdf = resp.data.results;  //save for the tile, so we can show it at the html
                 // resp.data.results is your array of Recordings
@@ -131,7 +131,7 @@ angular
         } 
 
         // immediately fetch our live list of moSymbol,moPhrases values:
-        $http.get('http://localhost:3019/api/annotations/image/symbolsAndPhrases')
+        $http.get('https://emu-webapp-backend.onrender.com/api/annotations/image/symbolsAndPhrases')
         .then((resp) => {
             vm.symbolOptions = resp.data.symbols;
             vm.phraseOptions = resp.data.phrases;
@@ -169,7 +169,7 @@ angular
             }
 
             $http
-            .get('http://localhost:3019/api/search/annotations/image', { params })
+            .get('https://emu-webapp-backend.onrender.com/api/search/annotations/image', { params })
             .then((resp) => {
                 vm.resultsAnnotationsImg = resp.data.results;
                 console.log('IMAGE ANNOT SEARCH SUCCESS:', resp.data.results);
@@ -201,7 +201,7 @@ angular
 
             console.log("dbName: ",params.dbName, " bundle: ",params.bundle, " level: ", params.level," itemId: ",params.itemId);
 
-            $http.get('http://localhost:3019/api/export/segment',{
+            $http.get('https://emu-webapp-backend.onrender.com/api/export/segment',{
                 params,
                 responseType: 'arraybuffer'
             })
@@ -235,7 +235,7 @@ angular
             //console.log("vm.resultsAnnotationsPdf: ",vm.resultsAnnotationsPdf);
             console.log("item: ",item);
 
-            $http.get('http://localhost:3019/api/export/pdfSegment', {
+            $http.get('https://emu-webapp-backend.onrender.com/api/export/pdfSegment', {
                 params,
                 responseType: 'arraybuffer'
                 })
@@ -261,7 +261,7 @@ angular
                 height: item.bbox.height
             };
 
-            $http.get('http://localhost:3019/api/export/imageSegment', {
+            $http.get('https://emu-webapp-backend.onrender.com/api/export/imageSegment', {
                 params,
                 responseType: 'arraybuffer'
             })
