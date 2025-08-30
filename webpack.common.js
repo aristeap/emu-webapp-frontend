@@ -43,13 +43,15 @@ module.exports = {
                     }]
                 },
                 { 
-                    // all files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'
-                    test: /\.tsx?$/, 
-                    loaders: [
-                            'ng-annotate-loader', // Add this line     
-                            "ts-loader" 
-                             
-                            ]
+                    test: /\.tsx?$/,
+                        use: [
+                            {
+                                loader: 'ng-annotate-loader'
+                            },
+                            {
+                                loader: 'ts-loader'
+                            }
+                        ]
                 },
                 {
                     test: /\.s[ac]ss$/,
