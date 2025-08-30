@@ -9,7 +9,7 @@
     "test": "karma start test/karma.conf.js",
     "scss": "sass src/styles/MetadataButton.scss src/styles/MetadataButton.css --watch"
   },
-    "dependencies": {
+  "dependencies": {
     "@angular/animations": "^5.0.0",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
@@ -22,7 +22,6 @@
     "@angular/platform-server": "^5.0.0",
     "@angular/router": "^5.0.0",
     "@angular/upgrade": "^5.0.0",
-    "@types/jquery": "^3.3.33",
     "angular": "^1.8.0",
     "angular-animate": "^1.8.0",
     "angular-cookies": "^1.8.0",
@@ -64,6 +63,7 @@
     "@material/button": "^5.1.0",
     "@types/body-parser": "^1.19.5",
     "@types/express": "^5.0.0",
+    "@types/jquery": "^3.5.33",
     "@types/node": "^13.13.52",
     "angular-mocks": "^1.8.0",
     "autoprefixer": "^6.5.3",
