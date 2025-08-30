@@ -47,7 +47,7 @@ module.exports = {
                     test: /\.tsx?$/, 
                     loaders: [
                             'ng-annotate-loader', // Add this line     
-                            "ts-loader" ,
+                            "ts-loader" 
                              
                             ]
                 },
