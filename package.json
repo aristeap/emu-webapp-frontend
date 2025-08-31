@@ -1,13 +1,14 @@
 {
-  "name": "emu-webapp-frontend",
+  "name": "emuwebapp",
   "version": "1.5.1",
-  "description": "The frontend of the EMU-webApp.",
-  "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.js",
-    "build": "rimraf dist/* && webpack --config webpack.prod.js",
-    "build-start": "rimraf dist/* && webpack --config webpack.prod.js && serve -l 9000 ./dist/",
-    "test": "karma start test/karma.conf.js",
-    "scss": "sass src/styles/MetadataButton.scss src/styles/MetadataButton.css --watch"
+  "description": "The EMU-webApp is an online and offline Web-App for labeling, visualizing and correcting speech and derived speech data.",
+  "main": "app/scripts/app.js",
+  "author": "Raphael Winkelmann, Georg Raess, Markus Jochim",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IPS-LMU/EMU-webApp"
   },
   "dependencies": {
     "@angular/animations": "^5.0.0",
@@ -107,5 +108,13 @@
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "rimraf dist/* && webpack --config webpack.prod.js",
+    "build-start": "rimraf dist/* && webpack --config webpack.prod.js && serve -l 9000 ./dist/",
+    "test": "karma start test/karma.conf.js",
+    "start:server": "ts-node server.ts",
+    "scss": "sass src/styles/MetadataButton.scss src/styles/MetadataButton.css --watch"
   }
 }
