@@ -34,7 +34,7 @@ module.exports = function(config) {
     // - ChromeCanary
     // - Firefox
     // - Opera
-    // - Safari (only Mac)
+    // - Safari (only Mac
     // - PhantomJS
     // - IE (only Windows)
     browsers: ['Chrome'],
