@@ -35,6 +35,18 @@ export class AuthController {
     console.log('✅ AuthController initialized');
   }
 
+
+  // NEW: Function to handle guest login
+  loginAsGuest(): void {
+    // 1. Set the user's role to 'simple' directly.
+    this.auth.setUser({ email: 'guest@example.com', role: 'simple' });
+    console.log('Logged in as a guest with role: simple');
+
+    // 2. Redirect the user to the main application page.
+    this.$location.path('/app');
+  }
+
+  
   submit(): void {
     this.loginError = ''; // clear previous
 

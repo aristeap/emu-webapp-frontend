@@ -41,6 +41,9 @@
         <span ng-if="auth.mode==='login'">Not a member? <a href ng-click="auth.mode='signup'">Signup now</a></span>
         <span ng-if="auth.mode==='signup'">Already a member? <a href ng-click="auth.mode='login'">Login</a></span>
       </p>
+      <p>
+          <span ng-if="auth.mode==='login' || auth.mode==='signup'"><a href ng-click="auth.loginAsGuest()">Continue as guest </a></span>
+      </p>
     </div>
 </div>
   
