@@ -15,6 +15,7 @@ module.exports = merge(common, {
             { from: 'src/index.html', to: '.' },
             { from: 'src/views', to: 'views' },
             { from:'src/styles', to: 'styles' },
+            { from: 'src/jsFolder', to: 'jsFolder'},
             { from: 'src/schemaFiles', to: 'schemaFiles' },
             { from: 'src/assets', to: 'assets' },
             { from: 'src/configFiles', to: 'configFiles' },
