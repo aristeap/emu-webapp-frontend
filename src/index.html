@@ -11,78 +11,78 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>EMU-webApp</title>
-	<meta name="description" content="">
+	<title>Linguistic Web Application | EMU Database</title>
+	<meta name="description" content="A web-based linguistic database for multi-tiered annotation and analysis of multimodal data including audio, video, images, and pdf.">
 	<meta name="viewport" content="width=device-width, user-scalable=no" >
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="google-site-verification" content="z2SIYEleF9YtIQQ_MrgJUHJTGbCocCCyZ2bSd5I82gI" />
-    <!-- icons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="assets/favicon-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="assets/favicon-160x160.png" sizes="160x160">
-    <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="assets/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="assets/favicon-32x32.png" sizes="32x32">
+  <!-- icons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="assets/favicon-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="assets/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="assets/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="assets/favicon-32x32.png" sizes="32x32">
 
-    <meta name="msapplication-TileColor" content="#0DC5FF">
-    <meta name="msapplication-TileImage" content="assets/mstile-144x144.png">
-    <!-- endicons -->
+  <meta name="msapplication-TileColor" content="#0DC5FF">
+  <meta name="msapplication-TileImage" content="assets/mstile-144x144.png">
+  <!-- endicons -->
 
 
-  
-     <!-- set basedir for angular app change if not running in root of server-->
-     <base href="/">
 
-     <script>
-      // Force polyfill (even if it exists, we overwrite it)
-      Object.defineProperty(Promise, 'allSettled', {
-        value: function(promises) {
-          return Promise.all(promises.map(promise =>
-            Promise.resolve(promise).then(
-              value => ({ status: 'fulfilled', value }),
-              reason => ({ status: 'rejected', reason })
-            )
-          ));
-        },
-        writable: true,
-        configurable: true
-      });
-      console.log("Forced polyfill for Promise.allSettled installed:", Promise.allSettled);
-  
-      // Disable the worker explicitly
-      window.pdfjsWorkerSettings = {
-        disableWorker: true,
-        workerSrc: ""
-      };
-    </script>
+    <!-- set basedir for angular app change if not running in root of server-->
+    <base href="/">
 
-     <!-- jQuery (must be loaded before jQuery UI) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- jQuery UI -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-
-    <!-- Now load pdf.min.js -->
-    <script src="./assets/pdf.min.js"></script>
-    <Script src="./assets/pdf_viewer.js"></Script>
     <script>
-      // Apply our worker settings
-      pdfjsLib.GlobalWorkerOptions.workerSrc = window.pdfjsWorkerSettings.workerSrc;
-      pdfjsLib.GlobalWorkerOptions.disableWorker = window.pdfjsWorkerSettings.disableWorker;
-      // console.log("Worker disabled:", pdfjsLib.GlobalWorkerOptions.disableWorker);
-    </script>
+    // Force polyfill (even if it exists, we overwrite it)
+    Object.defineProperty(Promise, 'allSettled', {
+      value: function(promises) {
+        return Promise.all(promises.map(promise =>
+          Promise.resolve(promise).then(
+            value => ({ status: 'fulfilled', value }),
+            reason => ({ status: 'rejected', reason })
+          )
+        ));
+      },
+      writable: true,
+      configurable: true
+    });
+    console.log("Forced polyfill for Promise.allSettled installed:", Promise.allSettled);
 
-    <script src="./assets/FileSaver.min.js"></script>
+    // Disable the worker explicitly
+    window.pdfjsWorkerSettings = {
+      disableWorker: true,
+      workerSrc: ""
+    };
+  </script>
+
+    <!-- jQuery (must be loaded before jQuery UI) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+  <!-- Now load pdf.min.js -->
+  <script src="./assets/pdf.min.js"></script>
+  <Script src="./assets/pdf_viewer.js"></Script>
+  <script>
+    // Apply our worker settings
+    pdfjsLib.GlobalWorkerOptions.workerSrc = window.pdfjsWorkerSettings.workerSrc;
+    pdfjsLib.GlobalWorkerOptions.disableWorker = window.pdfjsWorkerSettings.disableWorker;
+    // console.log("Worker disabled:", pdfjsLib.GlobalWorkerOptions.disableWorker);
+  </script>
+
+  <script src="./assets/FileSaver.min.js"></script>
 
 
 </head>
