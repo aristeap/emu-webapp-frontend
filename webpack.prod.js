@@ -14,6 +14,7 @@ module.exports = merge(common, {
         new CopyPlugin([
             { from: 'src/index.html', to: '.' },
             { from: 'src/views', to: 'views' },
+            { from:'src/styles', to: 'styles' },
             { from: 'src/schemaFiles', to: 'schemaFiles' },
             { from: 'src/assets', to: 'assets' },
             { from: 'src/configFiles', to: 'configFiles' },
